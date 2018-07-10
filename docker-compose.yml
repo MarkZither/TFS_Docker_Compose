@@ -1,15 +1,15 @@
 version: "3"
 services:
-    nginx:
-        image: "nginx:latest"
+    tfs:
+        image: "tfsbase:latest"
         ports:
             - "8080:80"
         depends_on:
             - db
     web:
-        build: .
+        image: "microsoft/iis"
         ports:
-            - "8000:8080"
+            - "8000:80"
         depends_on:
             - db
     db:
